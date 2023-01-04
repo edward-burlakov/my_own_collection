@@ -1,10 +1,7 @@
 ---
 - name: Create file with new content.
-  hosts: all
-  tasks:
-    - name: Create and fill a  new file
-      become: true
-      edward-burlakov.my_own_collection.my_own_module:
-        path: "{{ fpath }}"
-        content: "{{ fcontent }}"
-        name: "{{ fname }}"
+  become: true
+  my_own_module:
+    path: "{{ fpath }}"
+    content: "{{ fcontent }}"
+    name: "{{ fname }}"
