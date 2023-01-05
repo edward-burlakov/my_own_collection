@@ -65,7 +65,6 @@ def run_module():
         content=dict(type='str', required=True),
         name=dict(type='str', required=True)
     )
-    
 # seed the result dict in the object
 # we primarily care about changed and state
 # changed is if this module effectively modified the target
@@ -110,6 +109,7 @@ def run_module():
 
 # in the event of a successful module execution, you will want to
 # simple AnsibleModule.exit_json(), passing the key/value results
+    module.exit_json(msg="Something went wrong", **result)
     module.exit_json(**result)
 
 # Инициализируем переменные
@@ -131,10 +131,8 @@ def run_module():
 # in the event of a successful module execution, you will want to
 # simple AnsibleModule.exit_json(), passing the key/value results
     module.exit_json(**result)
-
-
 def main():
-# Запускаем модуль run_module, передавая внутрь внешние аргументы модуля.
+    # Запускаем модуль run_module, передавая внутрь внешние аргументы модуля.
     run_module()
 
 if __name__ == '__main__':
